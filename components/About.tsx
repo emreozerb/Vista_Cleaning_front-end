@@ -87,7 +87,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#6FA9C8] to-[#3B4A7C] rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#6FA9C8] to-[#3B4A7C] rounded-2xl flex items-center justify-center mb-6 mx-auto">
                 <feature.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-[#3B4A7C] mb-3">

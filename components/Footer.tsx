@@ -120,7 +120,7 @@ export default function Footer() {
               Copyright © {currentYear} Vista Cleaning - BTW: 1010.919.548 | Vista Designer BV. All Rights Reserved.
             </p>
             <p className="text-white/60 text-xs">
-              Created by <span className="text-[#6FA9C8] font-semibold">OGL Studio</span>
+              Created by <a href="https://www.instagram.com/ensolutionsbe/"> <span className="text-[#6FA9C8] font-semibold">ENSolutions</span></a>
             </p>
           </div>
         </div>

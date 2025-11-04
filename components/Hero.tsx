@@ -1,23 +1,67 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
 import LogoWatermark from "./LogoWatermark";
 
 export default function Hero() {
+  const backgrounds: { type: "image" | "video"; src: string }[] = [
+    { type: "image", src: "/diepe_reiniging.jpg" },
+    { type: "image", src: "/kantoor.jpg" },
+    { type: "image", src: "/raam_schoonmaak.jpg" },
+    { type: "image", src: "/verhuis.jpg" },
+    { type: "image", src: "/villa.jpg" },
+    { type: "image", src: "/winkelcentrum.jpg" },
+  ];
+  const [bgIndex, setBgIndex] = useState<number>(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((i) => (i + 1) % backgrounds.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [backgrounds.length]);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://images.pexels.com/photos/4239146/pexels-photo-4239146.jpeg?auto=compress&cs=tinysrgb&w=1920')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#3B4A7C]/95 via-[#3B4A7C]/85 to-[#6FA9C8]/85" />
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          {backgrounds.map((bg, i) => (
+            <motion.div
+              key={bg.src}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: i === bgIndex ? 1 : 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0 w-full h-full"
+              style={{ zIndex: i === bgIndex ? 2 : 1 }}
+            >
+              {bg.type === "image" ? (
+                <img
+                  src={bg.src}
+                  alt="Hero background"
+                  className="w-full h-full object-cover"
+                  style={{ position: "absolute", inset: 0 }}
+                />
+              ) : (
+                <video
+                  src={bg.src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  style={{ position: "absolute", inset: 0 }}
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#3B4A7C]/95 via-[#3B4A7C]/85 to-[#6FA9C8]/85" />
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <LogoWatermark position="bottom-right" />

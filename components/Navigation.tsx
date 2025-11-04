@@ -40,12 +40,12 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="relative w-10 h-10 overflow-hidden rounded">
+          <div className="relative w-16 h-16 overflow-hidden rounded">
             <Image
               src="/nav-logo.png"
               alt="Vista Cleaning"
-              width={40}
-              height={40}
+              width={64}
+              height={64}
               className="object-cover"
             />
           </div>
