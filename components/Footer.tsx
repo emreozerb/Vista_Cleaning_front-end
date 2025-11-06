@@ -102,7 +102,7 @@ export default function Footer() {
               <li>3550 Heusden-Zolder</li>
               <li className="pt-2">
                 <a href="tel:+32492569068" className="hover:text-[#6FA9C8] transition-colors">
-                  +32 492 56 90 68
+                  +32 492 12 03 94
                 </a>
               </li>
               <li>

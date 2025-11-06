@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
-import LogoWatermark from "./LogoWatermark";
+// logo will be displayed on the left using the public folder: /nav-logo.png
 
 export default function Hero() {
   const backgrounds: { type: "image" | "video"; src: string }[] = [
@@ -64,87 +64,93 @@ export default function Hero() {
         </div>
       </div>
 
-      <LogoWatermark position="bottom-right" />
-
       <div className="container mx-auto px-4 py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8"
-          >
-            <Sparkles className="w-5 h-5 text-white" />
-            <span className="text-white font-medium">10+ jaar ervaring in schoonmaakdiensten</span>
-          </motion.div>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-24 md:pl-24 lg:pl-36 xl:pl-48">
+          {/* Left column: logo */}
+          <div className="w-full md:w-1/3 flex justify-center md:justify-start md:-ml-16 lg:-ml-24">
+            <img src="/nav-logo.png" alt="Vista Cleaning" className="w-64 h-auto object-contain" />
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
-          >
-            Wij maken schoon.
-            <br />
-            <span className="text-[#6FA9C8]">Jij geniet.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-white mb-12 max-w-2xl mx-auto drop-shadow-md"
-          >
-            Professionele schoonmaak voor particulieren en bedrijven.
-            Betrouwbaar, grondig en altijd met aandacht voor elk detail.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button
-              size="lg"
-              asChild
-              className="bg-white text-[#3B4A7C] hover:bg-gray-100 text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+          {/* Right column: hero content (left-aligned) */}
+          <div className="w-full md:w-2/3 text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8"
             >
-              <a href="mailto:vistacleaning.d@gmail.com?subject=Offerte aanvraag&body=Beste Vista Cleaning,%0D%0A%0D%0AIk wil graag een vrijblijvende offerte aanvragen voor:%0D%0A%0D%0ANaam:%0D%0ATelefoon:%0D%0AType dienst:%0D%0ADetails:%0D%0A%0D%0AMet vriendelijke groet">
-                Gratis offerte aanvragen
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              asChild
-              className="bg-[#3B4A7C] text-white hover:bg-[#2A3560] text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 border-2 border-white"
-            >
-              <a href="#about">
-                Meer informatie
-              </a>
-            </Button>
-          </motion.div>
+              <Sparkles className="w-5 h-5 text-white" />
+              <span className="text-white font-medium">10+ jaar ervaring in schoonmaakdiensten</span>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-16 flex flex-wrap justify-center gap-8 text-white"
-          >
-            <div className="text-center">
-              <div className="text-4xl font-bold">10+</div>
-              <div className="text-white/80">Jaar ervaring</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold">400+</div>
-              <div className="text-white/80">Tevreden klanten</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold">100%</div>
-              <div className="text-white/80">Kwaliteitsgarantie</div>
-            </div>
-          </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+            >
+              Wij maken schoon.
+              <br />
+              <span className="text-[#6FA9C8]">Jij geniet.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-white mb-8 max-w-xl drop-shadow-md"
+            >
+              Professionele schoonmaak voor particulieren en bedrijven.
+              Betrouwbaar, grondig en altijd met aandacht voor elk detail.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-start"
+            >
+              <Button
+                size="lg"
+                asChild
+                className="bg-white text-[#3B4A7C] hover:bg-gray-100 text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+              >
+                <a href="mailto:vistacleaning.d@gmail.com?subject=Offerte aanvraag&body=Beste Vista Cleaning,%0D%0A%0D%0AIk wil graag een vrijblijvende offerte aanvragen voor:%0D%0A%0D%0ANaam:%0D%0ATelefoon:%0D%0AType dienst:%0D%0ADetails:%0D%0A%0D%0AMet vriendelijke groet">
+                  Gratis offerte aanvragen
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                asChild
+                className="bg-[#3B4A7C] text-white hover:bg-[#2A3560] text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 border-2 border-white"
+              >
+                <a href="#about">
+                  Meer informatie
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="mt-12 flex flex-wrap justify-start gap-8 text-white"
+            >
+              <div className="text-left">
+                <div className="text-3xl md:text-4xl font-bold">10+</div>
+                <div className="text-white/80">Jaar ervaring</div>
+              </div>
+              <div className="text-left">
+                <div className="text-3xl md:text-4xl font-bold">400+</div>
+                <div className="text-white/80">Tevreden klanten</div>
+              </div>
+              <div className="text-left">
+                <div className="text-3xl md:text-4xl font-bold">100%</div>
+                <div className="text-white/80">Kwaliteitsgarantie</div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
 

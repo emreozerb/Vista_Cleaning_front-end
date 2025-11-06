@@ -14,8 +14,8 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Telefoon",
-      content: "+32 492 56 90 68",
-      link: "tel:+32492569068",
+      content: "+32 492 12 03 94",
+      link: "tel:32492120394",
     },
     {
       icon: Mail,
@@ -27,7 +27,7 @@ export default function Contact() {
       icon: MapPin,
       title: "Adres",
       content: "Hoensbroeckstraat 45, 3550 Heusden-Zolder",
-      link: "https://maps.google.com/?q=Hoensbroeckstraat+45+3550+Heusden-Zolder",
+      // link: "https://maps.google.com/?q=Hoensbroeckstraat+45+3550+Heusden-Zolder",
     },
     {
       icon: Clock,
